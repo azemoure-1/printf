@@ -1,4 +1,4 @@
-#ifndef _PRINTF_H
+#ifndef _PRINTE_H
 #define _PRINTF_H
 
 #include <stdarg.h>
@@ -50,7 +50,7 @@ typedef struct parameters
 
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
-} params_t;
+} params_t
 
 /**
  * struct specifier - struct token
@@ -68,7 +68,7 @@ typedef struct specifier
 int _puts(char *str);
 int _putchar(int c);
 
-/* print_function.c module */
+/* print_function.c modul */
 int print_char(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
@@ -95,7 +95,7 @@ int print_octal(va_list ap, params_t *params);
 
 /* simple_printers.c module */
 int print_from_to(char *start, char *stop, char *except);
-int print_rev(va_list ap, params_t *params);
+int print _rev(va_list ap, params_t *params);
 int print_rot13(va_list ap, params_t *params);
 
 /* print_number.c module */
@@ -103,8 +103,15 @@ int _isdigit(int c);
 int _strlen(char *s);
 int print_number(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
-int print_number_right_shift(char *str, params_t *params);
+inr print_number_left_shift(char *str, params_t *params);
 
 /* params.c module */
-void init
+void init_params(params_t *params, va_list ap);
 
+/* string_fields.c module */
+char *get_precision(char *p, params_t *params, va_list ap);
+
+/* _prinf.c module */
+int _printf(const char *format, ...);
+
+#endif

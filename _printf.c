@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - prints anything
  * @format: the format string
@@ -11,9 +10,9 @@ int _printf(const char *format, ...)
 	int sum = 0;
 	va_list ap;
 	char *p, *start;
-	params_t params = PARAMS_INIT;
+	params_t params = PARAMS_INNIT
 
-	va_start(ap, format);
+	va_start (ap, format);
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -31,12 +30,12 @@ int _printf(const char *format, ...)
 		p++;
 		while (get_flag(p, &params)) /* while char at p is flag char */
 		{
-			p++; /* next char */
+			p++ /* next char */
 		}
 		p = get_width(p, &params, ap);
 		p = get_precision(p, &params, ap);
 		if (get_modifier(p, &params))
-			p++;
+			p++
 		if (!get_specifier(p))
 			sum += print_from_to(start, p,
 				params.l_modifier || params.h_modifier ? p - 1 : 0);
@@ -47,4 +46,3 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (sum);
 }
-
